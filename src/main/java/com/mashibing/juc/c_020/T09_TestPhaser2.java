@@ -52,9 +52,9 @@ public class T09_TestPhaser2 {
                     return false;
                 case 3:
                     System.out.println("»éÀñ½áÊø£¡ĞÂÀÉĞÂÄï±§±§£¡" + registeredParties);
-                    return true;
+                    return false;
                 default:
-                    return true;
+                    return false;
             }
         }
     }
@@ -95,7 +95,7 @@ public class T09_TestPhaser2 {
                 phaser.arriveAndAwaitAdvance();
             } else {
                 phaser.arriveAndDeregister();
-                //phaser.register()
+//                phaser.register();
             }
         }
 

@@ -5,7 +5,7 @@ import java.util.concurrent.CountDownLatch;
 public class T06_TestCountDownLatch {
     public static void main(String[] args) {
         usingJoin();
-        usingCountDownLatch();
+//        usingCountDownLatch();
     }
 
     private static void usingCountDownLatch() {
@@ -50,6 +50,7 @@ public class T06_TestCountDownLatch {
         for (int i = 0; i < threads.length; i++) {
             try {
                 threads[i].join();
+                System.out.println("thread:"+i);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -19,6 +19,7 @@ public class T03________VolatileReference2 {
     public static void main(String[] args) {
         Thread writer = new Thread(()->{
             for (int i = 0; i < 10000; i++) {
+//                System.out.println("writer:"+i);
                 data = new Data(i, i);
             }
         });
@@ -27,6 +28,7 @@ public class T03________VolatileReference2 {
             while (data == null) {}
             int x = data.a;
             int y = data.b;
+//            System.out.println("reader...");
             if(x != y) {
                 System.out.printf("a = %s, b=%s%n", x, y);
             }

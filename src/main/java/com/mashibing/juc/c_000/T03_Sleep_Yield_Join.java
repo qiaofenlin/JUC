@@ -2,9 +2,9 @@ package com.mashibing.juc.c_000;
 
 public class T03_Sleep_Yield_Join {
     public static void main(String[] args) {
-//        testSleep();
-//        testYield();
-        testJoin();
+//        testSleep(); //sleep完也会进入就绪状态
+        testYield(); //让出一会cpu的使用权，返回到就绪状态
+//        testJoin();
     }
 
     static void testSleep() {
@@ -41,8 +41,8 @@ public class T03_Sleep_Yield_Join {
 
     static void testJoin() {
         Thread t1 = new Thread(()->{
-            for(int i=0; i<100; i++) {
-                System.out.println("A" + i);
+            for(int i=0; i<10; i++) {
+                System.out.println("t1:" + i);
                 try {
                     Thread.sleep(500);
                     //TimeUnit.Milliseconds.sleep(500)
@@ -60,8 +60,8 @@ public class T03_Sleep_Yield_Join {
                 e.printStackTrace();
             }
 
-            for(int i=0; i<100; i++) {
-                System.out.println("A" + i);
+            for(int i=0; i<10; i++) {
+                System.out.println("t2:" + i);
                 try {
                     Thread.sleep(500);
                     //TimeUnit.Milliseconds.sleep(500)

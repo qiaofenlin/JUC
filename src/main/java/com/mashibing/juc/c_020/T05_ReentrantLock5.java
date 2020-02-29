@@ -12,7 +12,7 @@
  * 使用ReentrantLock还可以调用lockInterruptibly方法，可以对线程interrupt方法做出响应，
  * 在一个线程等待锁的过程中，可以被打断
  * 
- * ReentrantLock还可以指定为公平锁
+ * ReentrantLock还可以指定为公平锁,会查看等待队列，如果有 后执行。
  * 
  * @author mashibing
  */

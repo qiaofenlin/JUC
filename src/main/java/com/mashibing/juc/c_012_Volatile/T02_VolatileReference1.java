@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 public class T02_VolatileReference1 {
 
-    boolean running = true;
+    /*volatile */boolean running = true;
 
     volatile static T02_VolatileReference1 T = new T02_VolatileReference1();
 
@@ -36,6 +36,8 @@ public class T02_VolatileReference1 {
             e.printStackTrace();
         }
 
+
         T.running = false;
+        System.out.println("T.running = false");
     }
 }

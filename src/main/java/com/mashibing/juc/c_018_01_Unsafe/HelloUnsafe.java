@@ -2,6 +2,12 @@ package com.mashibing.juc.c_018_01_Unsafe;
 
 //import sun.misc.*;
 
+/**
+ * 直接修改内存的操作
+ *
+ *
+ */
+
 import sun.misc.Unsafe;
 
 public class HelloUnsafe {
