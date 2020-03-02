@@ -6,6 +6,8 @@
  * 
  * 使用Lock和Condition来实现
  * 对比两种方式，Condition的方式可以更加精确的指定哪些线程被唤醒
+ *
+ * condition的本质是等待队列的个数
  * 
  * @author mashibing
  */
@@ -23,6 +25,8 @@ public class MyContainer2<T> {
 	private int count = 0;
 	
 	private Lock lock = new ReentrantLock();
+
+	/* 生成两个等待队列  不同的等待队列 */
 	private Condition producer = lock.newCondition();
 	private Condition consumer = lock.newCondition();
 	

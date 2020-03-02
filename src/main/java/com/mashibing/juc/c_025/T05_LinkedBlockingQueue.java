@@ -15,7 +15,7 @@ public class T05_LinkedBlockingQueue {
 		new Thread(() -> {
 			for (int i = 0; i < 100; i++) {
 				try {
-					strs.put("a" + i); //如果满了，就会等待
+					strs.put("a" + i); //如果满了，就会等待 会阻塞 阻塞的原理是 Locksupport.park()
 					TimeUnit.MILLISECONDS.sleep(r.nextInt(1000));
 				} catch (InterruptedException e) {
 					e.printStackTrace();

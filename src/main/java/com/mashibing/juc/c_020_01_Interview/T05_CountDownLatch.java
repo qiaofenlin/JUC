@@ -47,6 +47,7 @@ public class T05_CountDownLatch {
 		T05_CountDownLatch c = new T05_CountDownLatch();
 
 		CountDownLatch latch = new CountDownLatch(1);
+		CountDownLatch latch2 = new CountDownLatch(1);
 
 		new Thread(() -> {
 			System.out.println("t2启动");
@@ -61,6 +62,8 @@ public class T05_CountDownLatch {
 				}
 			}
 			System.out.println("t2 结束");
+
+			latch2.countDown();
 
 		}, "t2").start();
 
@@ -79,7 +82,14 @@ public class T05_CountDownLatch {
 				if (c.size() == 5) {
 					// 打开门闩，让t2得以执行
 					latch.countDown();
+
+					try {
+						latch2.await();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
 				}
+
 
 				/*try {
 					TimeUnit.SECONDS.sleep(1);

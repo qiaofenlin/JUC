@@ -43,7 +43,7 @@ public class T03_NotifyHoldingLock { //wait notify
 				System.out.println("t2启动");
 				if(c.size() != 5) {
 					try {
-						lock.wait();
+						lock.wait(); //虽然notify 但是没有释放锁,所以还是await
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -67,7 +67,7 @@ public class T03_NotifyHoldingLock { //wait notify
 					System.out.println("add " + i);
 					
 					if(c.size() == 5) {
-						lock.notify();
+						lock.notify(); //不释放锁
 					}
 					
 					try {

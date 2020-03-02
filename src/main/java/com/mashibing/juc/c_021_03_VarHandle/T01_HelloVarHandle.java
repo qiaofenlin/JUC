@@ -1,4 +1,13 @@
 //package com.mashibing.juc.c_021_03_VarHandle;
+///**
+// * JDK1.9之后才有的
+// *
+// * varhandle 指向某个变量的handle
+// *
+// *1. 可以进行一些原子性线程安全的操作。
+// *2. 比反射快，直接操作二进制码
+// *
+// */
 //
 //import java.lang.invoke.MethodHandles;
 //import java.lang.invoke.VarHandle;
