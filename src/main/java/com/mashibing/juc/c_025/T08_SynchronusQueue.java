@@ -5,9 +5,13 @@ import java.util.concurrent.SynchronousQueue;
 
 public class T08_SynchronusQueue { //容量为0
 	public static void main(String[] args) throws InterruptedException {
+		/**
+		 * 两个线程之间传数据时使用
+		 */
+
 		BlockingQueue<String> strs = new SynchronousQueue<>();
-		
-		new Thread(()->{
+
+		new Thread(() -> {
 			try {
 				System.out.println(strs.take());
 			} catch (InterruptedException e) {

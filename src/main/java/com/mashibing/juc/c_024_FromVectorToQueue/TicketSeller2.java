@@ -7,7 +7,8 @@
  *  
  * 使用Vector或者Collections.synchronizedXXX
  * 分析一下，这样能解决问题吗？
- * 
+ *
+ * 整个代码不是原子性的
  * @author 马士兵
  */
 package com.mashibing.juc.c_024_FromVectorToQueue;

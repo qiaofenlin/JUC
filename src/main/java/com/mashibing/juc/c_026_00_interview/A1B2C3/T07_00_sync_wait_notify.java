@@ -1,11 +1,13 @@
 package com.mashibing.juc.c_026_00_interview.A1B2C3;
 
 
+import java.util.concurrent.CountDownLatch;
+
 public class T07_00_sync_wait_notify {
 
     private static volatile boolean t2Started = false;
 
-    //private static CountDownLatch latch = new C(1);
+    private static CountDownLatch latch = new CountDownLatch(1);
 
     public static void main(String[] args) {
         final Object o = new Object();
@@ -16,12 +18,17 @@ public class T07_00_sync_wait_notify {
         char[] aC = "ABCDEFG".toCharArray();
 
         new Thread(()->{
-            //latch.await();
+//            try {
+//                latch.await();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
 
             synchronized (o) {
 
                 while(!t2Started) {
                     try {
+                        System.out.println("t1 wait");
                         o.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -47,9 +54,10 @@ public class T07_00_sync_wait_notify {
         new Thread(()->{
 
             synchronized (o) {
+//                latch.countDown();
+
                 for(char c : aC) {
                     System.out.print(c);
-                    //latch.countDown()
                     t2Started = true;
                     try {
                         o.notify();

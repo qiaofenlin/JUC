@@ -32,7 +32,12 @@ public class T06_01_CompletableFuture {
         CompletableFuture<Double> futureJD = CompletableFuture.supplyAsync(()->priceOfJD());
 
         CompletableFuture.allOf(futureTM, futureTB, futureJD).join();
+//        CompletableFuture.anyOf()
 
+        /**
+         * 对一个任务的返回值进行操作 然后输出
+         *
+         */
         CompletableFuture.supplyAsync(()->priceOfTM())
                 .thenApply(String::valueOf)
                 .thenApply(str-> "price " + str)
@@ -42,6 +47,9 @@ public class T06_01_CompletableFuture {
         end = System.currentTimeMillis();
         System.out.println("use completable future! " + (end - start));
 
+        /**
+         * 将主线程阻塞 等待子线程的运行
+         */
         try {
             System.in.read();
         } catch (IOException e) {

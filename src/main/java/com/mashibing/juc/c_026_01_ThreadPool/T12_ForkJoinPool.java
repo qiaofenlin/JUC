@@ -17,11 +17,14 @@ public class T12_ForkJoinPool {
 			nums[i] = r.nextInt(100);
 		}
 		
-		System.out.println("---" + Arrays.stream(nums).sum()); //stream api
+		System.out.println("---" + Arrays.stream(nums).sum()); //stream api 单线程
 	}
-	
+
 
 	static class AddTask extends RecursiveAction {
+		/**
+		 * 使用递归的方式进行fork
+		 */
 
 		int start, end;
 
@@ -33,13 +36,13 @@ public class T12_ForkJoinPool {
 		@Override
 		protected void compute() {
 
-			if(end-start <= MAX_NUM) {
+			if (end - start <= MAX_NUM) {
 				long sum = 0L;
-				for(int i=start; i<end; i++) sum += nums[i];
+				for (int i = start; i < end; i++) sum += nums[i];
 				System.out.println("from:" + start + " to:" + end + " = " + sum);
 			} else {
 
-				int middle = start + (end-start)/2;
+				int middle = start + (end - start) / 2;
 
 				AddTask subTask1 = new AddTask(start, middle);
 				AddTask subTask2 = new AddTask(middle, end);
@@ -85,19 +88,19 @@ public class T12_ForkJoinPool {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		/*ForkJoinPool fjp = new ForkJoinPool();
-		AddTask task = new AddTask(0, nums.length);
-		fjp.execute(task);*/
+//		ForkJoinPool fjp = new ForkJoinPool();
+//		AddTask task = new AddTask(0, nums.length);
+//		fjp.execute(task);
 
-		T12_ForkJoinPool temp = new T12_ForkJoinPool();
+//		T12_ForkJoinPool temp = new T12_ForkJoinPool();
 
 		ForkJoinPool fjp = new ForkJoinPool();
 		AddTaskRet task = new AddTaskRet(0, nums.length);
 		fjp.execute(task);
 		long result = task.join();
 		System.out.println(result);
-		
-		//System.in.read();
+		System.out.println("success");
+		System.in.read();
 		
 	}
 }

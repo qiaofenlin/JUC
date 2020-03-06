@@ -6,9 +6,13 @@ import java.util.concurrent.TimeUnit;
 
 public class T08_CachedPool {
 	public static void main(String[] args) throws InterruptedException {
+		/**
+		 * 只要启动任务 就会创建新的线程
+		 */
+
 		ExecutorService service = Executors.newCachedThreadPool();
 		System.out.println(service);
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 10; i++) {
 			service.execute(() -> {
 				try {
 					TimeUnit.MILLISECONDS.sleep(500);
@@ -19,11 +23,11 @@ public class T08_CachedPool {
 			});
 		}
 		System.out.println(service);
-		
+
 		TimeUnit.SECONDS.sleep(80);
-		
+
 		System.out.println(service);
-		
-		
+
+
 	}
 }

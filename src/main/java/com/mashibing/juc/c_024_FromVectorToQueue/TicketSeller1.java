@@ -6,7 +6,8 @@
  * 分析下面的程序可能会产生哪些问题？
  * 重复销售？超量销售？
  * 
- * 
+ *
+ * 容器是
  * @author 马士兵
  */
 package com.mashibing.juc.c_024_FromVectorToQueue;

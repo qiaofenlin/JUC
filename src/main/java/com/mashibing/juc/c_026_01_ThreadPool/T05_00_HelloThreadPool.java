@@ -35,7 +35,7 @@ public class T05_00_HelloThreadPool {
                 60, TimeUnit.SECONDS,
                 new ArrayBlockingQueue<Runnable>(4),
                 Executors.defaultThreadFactory(),
-                new ThreadPoolExecutor.CallerRunsPolicy());
+                new ThreadPoolExecutor.DiscardOldestPolicy());
 
         for (int i = 0; i < 8; i++) {
             tpe.execute(new Task(i));

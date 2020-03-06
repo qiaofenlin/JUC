@@ -34,7 +34,7 @@ public class TicketSeller4 {
 		for(int i=0; i<10; i++) {
 			new Thread(()->{
 				while(true) {
-					String s = tickets.poll();
+					String s = tickets.poll(); //原子性是通过cas实现的
 					if(s == null) break;
 					else System.out.println("销售了--" + s);
 				}

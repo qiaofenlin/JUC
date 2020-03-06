@@ -46,22 +46,26 @@ public class T07_DelayQueue {
 	}
 
 	public static void main(String[] args) throws InterruptedException {
+
+		/**
+		 * 适用于按时间进行任务调度
+		 */
 		long now = System.currentTimeMillis();
 		MyTask t1 = new MyTask("t1", now + 1000);
 		MyTask t2 = new MyTask("t2", now + 2000);
 		MyTask t3 = new MyTask("t3", now + 1500);
 		MyTask t4 = new MyTask("t4", now + 2500);
 		MyTask t5 = new MyTask("t5", now + 500);
-		
+
 		tasks.put(t1);
 		tasks.put(t2);
 		tasks.put(t3);
 		tasks.put(t4);
 		tasks.put(t5);
-		
+
 		System.out.println(tasks);
-		
-		for(int i=0; i<5; i++) {
+
+		for (int i = 0; i < 5; i++) {
 			System.out.println(tasks.take());
 		}
 	}
