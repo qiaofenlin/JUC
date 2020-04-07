@@ -17,6 +17,7 @@ public class T14_MyRejectedHandler {
             //log("r rejected")
             //save r kafka mysql redis
             //try 3 times
+            System.out.println(executor.getCorePoolSize());
             if(executor.getQueue().size() < 10000) {
                 //try put again();
             }

@@ -15,12 +15,17 @@ public class T06_ArrayBlockingQueue {
 		for (int i = 0; i < 10; i++) {
 			strs.put("a" + i);
 		}
-		
-		//strs.put("aaa"); //满了就会等待，程序阻塞
+		System.out.println(strs);
+
+		for (int i = 0; i < 11; i++) {
+			String s = strs.poll(1, TimeUnit.SECONDS);
+			System.out.println("strs poll:"+s);
+		}
+		strs.put("aaa"); //满了就会等待，程序阻塞
 		//strs.add("aaa");
 		//strs.offer("aaa");
-		strs.offer("aaa", 1, TimeUnit.SECONDS);
-		
+//		boolean aaa = strs.offer("aaa", 1, TimeUnit.SECONDS);
+//		System.out.println("strs offer:"+aaa);
 		System.out.println(strs);
 	}
 }
