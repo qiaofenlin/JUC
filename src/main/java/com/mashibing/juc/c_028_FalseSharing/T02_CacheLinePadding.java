@@ -18,13 +18,13 @@ public class T02_CacheLinePadding {
 
     public static void main(String[] args) throws Exception {
         Thread t1 = new Thread(()->{
-            for (long i = 0; i < 1000_0000L; i++) {
+            for (long i = 0; i < 1000_00000L; i++) {
                 arr[0].x = i;
             }
         });
 
         Thread t2 = new Thread(()->{
-            for (long i = 0; i < 1000_0000L; i++) {
+            for (long i = 0; i < 1000_00000L; i++) {
                 arr[1].x = i;
             }
         });
